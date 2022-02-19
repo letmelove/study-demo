@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -27,9 +28,14 @@ public class UserController {
     private IUserService userService;
 
     @ApiOperation(value = "按照用户id查询")
-    @GetMapping( "{id}")
+    @GetMapping(value = "/querById/{id}")
     public User querById(@PathVariable("id") Long id){
         User user = userService.getById(id);
         return user;
+    }
+
+    @GetMapping(value = "/list")
+    public List<User> userList(){
+       return userService.getAll();
     }
 }

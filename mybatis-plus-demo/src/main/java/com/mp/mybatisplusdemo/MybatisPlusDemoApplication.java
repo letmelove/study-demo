@@ -13,6 +13,7 @@ import java.net.UnknownHostException;
 
 @Slf4j
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.mp"})
 @MapperScan(value = {"com.mp.mybatisplusdemo.*.mapper"})
 public class MybatisPlusDemoApplication {
 
