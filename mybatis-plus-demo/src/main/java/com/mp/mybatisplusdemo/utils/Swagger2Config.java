@@ -27,6 +27,18 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())
+                .groupName("分组1")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.mp"))
+                .paths(PathSelectors.any())
+                .build();
+    }
+    @Bean(value = "createRestApi2")
+    public Docket createRestApi2() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .useDefaultResponseMessages(false)
+                .apiInfo(apiInfo())
+                .groupName("分组2")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.mp"))
                 .paths(PathSelectors.any())
